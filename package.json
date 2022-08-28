@@ -13,16 +13,18 @@
     "@testing-library/user-event": "^7.2.1"
   },
   "scripts": {
-    "build": "react-scripts build",
     "docker:build": "docker image build . -t thinkful-ed/zid-fe-react-state-management-xx-assignment",
     "docker:run": "docker run --rm -it -p 3000:3000 thinkful-ed/zid-fe-react-state-management-xx-assignment",
     "docker:stop": "docker stop $(docker ps -q)",
     "docker:test": "docker run -t  thinkful-ed/zid-fe-react-state-management-xx-assignment npm test",
-    "eject": "react-scripts eject",
-    "start": "react-scripts start",
     "start:solution": "npm run -it docker:build && npm run docker:run",
+    "test:solution": "npm run docker:build && npm run docker:test",
+    "start": "react-scripts start",
+    "prebuild": "react-scripts test",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:solution": "npm run docker:build && npm run docker:test"
+    "eject": "react-scripts eject",
+    "hello": "echo 'hello!'"
   },
   "eslintConfig": {
     "extends": "react-app"
